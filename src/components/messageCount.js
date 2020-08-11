@@ -10,6 +10,8 @@ export const Countor = () => {
     return <Count>
                 <h1>{count}</h1>
                 <button onClick={() => setCount(count + 1)}>Add 1 !</button>
+                <button onClick={() => setCount(0)}>Reset</button>
+
             </Count>
 }
 
