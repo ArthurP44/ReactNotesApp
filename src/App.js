@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled'
 import { Sender } from './components/save_notes';
 import { Card } from './components/card';
+import { Countor } from './components/messageCount'
 
 const App = () => {
   //state
@@ -10,9 +11,12 @@ const App = () => {
   const updateMessages = (message) => {
     setMessages((messages) => [message, ...messages])
   }
+  
 
+  //<Count handleCountChange ={() => handleCountChange()}/>
   return <MainWrapper>
     <Sender updateMessages={(messageToUpdate) => updateMessages(messageToUpdate)}/>
+    <Countor></Countor>
     <WrapperCards>
       {
         messages.map((message, index) => {
