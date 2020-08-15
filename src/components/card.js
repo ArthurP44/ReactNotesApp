@@ -7,5 +7,5 @@ return <MessageCard>{children}</MessageCard>
 }
 
 const MessageCard = styled.div`
-    
+    font-size: 20px;
 `

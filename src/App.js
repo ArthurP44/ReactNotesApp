@@ -10,8 +10,6 @@ const App = () => {
   //state
   const [messages, setMessages] = useState([])
 
-  console.log(messages);
-
   useEffect(() => {
     const ref = firebaseDb.ref(`messages`)
     const getMessages = (val) => {
@@ -47,7 +45,8 @@ const removeMessage = async(id) => {
 } 
 
 const MainWrapper = styled.div`
-  background-color: grey;
+  background-color: #23201f
+;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -57,6 +56,15 @@ const MainWrapper = styled.div`
 const WrapperCards = styled.div` 
 `
 const MessagesWrapper = styled.div`
+  background-color: #464241 ;
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 `
 
 const WrapperAnimation = styled.div`

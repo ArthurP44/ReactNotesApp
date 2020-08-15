@@ -35,7 +35,9 @@ const sendMessage = async (message) => {
 }
 
 const TextBox = styled.div`
-    background-color: yellow;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #464241;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,11 +49,13 @@ const TextZone = styled.textarea`
     border-radius: 16px;
     min-height: 80px;
     min-width: 300px;
+    border: solid orange;
+
 `
 
 const SendButton = styled.div`
     padding: 5px 15px;
-    background-color: ${props => props.isHovered ? 'grey' : 'blue'};
+    background-color: ${props => props.isHovered ? 'white' : 'orange'};
     border-radius: 18px;
     width: min-content;
     cursor: pointer;
@@ -61,6 +65,6 @@ const SendButton = styled.div`
 const TextSendButton = styled.div`
     font-size: 18px;
     font-weight: bold;
-    color: ${props => props.isHovered ? 'blue' : 'grey'};
+    color: ${props => props.isHovered ? 'orange' : 'white'};
     
 `
