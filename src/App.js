@@ -9,6 +9,7 @@ import { firebaseDb } from './firebase_config';
 const App = () => {
   //state
   const [messages, setMessages] = useState([])
+  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     const ref = firebaseDb.ref(`messages`)
@@ -28,8 +29,16 @@ const App = () => {
       {
         messages.map(([id, message], index) => {
           return <MessagesWrapper key={index + 'messages'}>
-                    <Card>{message}</Card>
-                    <button onClick={()=> removeMessage(id)}>X</button>
+                    <Card>{message}
+                      <DeleteCardButton 
+                      onMouseEnter={()=> setIsHovered(true)}
+                      onMouseLeave={()=> setIsHovered(false)}
+                      onClick={()=> removeMessage(id)}
+                      isHovered={isHovered}>
+                      <TextDeleteButton/>
+                    </DeleteCardButton>
+                    </Card>
+                    
                   </MessagesWrapper>
         })
       }
@@ -44,9 +53,23 @@ const removeMessage = async(id) => {
   await firebaseDb.ref(`messages/${id}`).remove()
 } 
 
+const DeleteCardButton = styled.div`
+    padding: 10px;
+    background-color: ${props => props.isHovered ? 'white' : 'red'};
+    border-radius: 50%;
+    width: min-content;
+    cursor: pointer;
+    transform: ${props => props.isHovered ? 'translateY(2px)' : 'translateY(0)'};
+    transition: all 200ms ease-in-out;
+`
+
+const TextDeleteButton = styled.div`
+    color: ${props => props.isHovered ? 'red' : 'white'};
+    
+`
+
 const MainWrapper = styled.div`
-  background-color: #23201f
-;
+  background-color: #23201f;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -65,6 +88,7 @@ const MessagesWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  width: 500px;
 `
 
 const WrapperAnimation = styled.div`

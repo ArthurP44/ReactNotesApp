@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled'
 import { firebaseDb } from '../firebase_config';
+
 const {nanoid} = require('nanoid');
 
 export const Sender = ({updateMessages, ...props}) => {
@@ -15,18 +16,18 @@ export const Sender = ({updateMessages, ...props}) => {
     }
 
     return <TextBox {...props}>
-        <TextZone onChange={handleChange} value={message}/>
-        <SendButton onClick={() => {
-            sendMessage(message)
-            setMessage('')
-            }}
-            onMouseEnter={()=> setIsHovered(true)}
-            onMouseLeave={()=> setIsHovered(false)}
-            isHovered={isHovered}  
-            >
-            <TextSendButton isHovered={isHovered}>Send</TextSendButton>
-        </SendButton>
-    </TextBox>
+                <TextZone onChange={handleChange} value={message}/>
+                <SendButton onClick={() => {
+                    sendMessage(message)
+                    setMessage('')
+                    }}
+                    onMouseEnter={()=> setIsHovered(true)}
+                    onMouseLeave={()=> setIsHovered(false)}
+                    isHovered={isHovered}  
+                    >
+                    <TextSendButton isHovered={isHovered}>Send</TextSendButton>
+                </SendButton>
+            </TextBox>
 } 
 
 const sendMessage = async (message) => {
@@ -35,6 +36,7 @@ const sendMessage = async (message) => {
 }
 
 const TextBox = styled.div`
+    margin-top: 50px;
     border-radius: 15px;
     padding: 20px;
     background-color: #464241;
@@ -43,6 +45,7 @@ const TextBox = styled.div`
     align-items: center;
     height: 160px;
     justify-content: space-around;
+    width: 500px;
 `
 
 const TextZone = styled.textarea`
