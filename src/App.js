@@ -53,7 +53,7 @@ const removeMessage = async(id) => {
   await firebaseDb.ref(`messages/${id}`).remove()
 } 
 
-const DeleteCardButton = styled.div`
+const DeleteCardButton = styled.button`
     padding: 10px;
     background-color: ${props => props.isHovered ? 'white' : 'red'};
     border-radius: 50%;

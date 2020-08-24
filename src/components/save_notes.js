@@ -56,7 +56,7 @@ const TextZone = styled.textarea`
 
 `
 
-const SendButton = styled.div`
+const SendButton = styled.button`
     padding: 5px 15px;
     background-color: ${props => props.isHovered ? 'white' : 'orange'};
     border-radius: 18px;
